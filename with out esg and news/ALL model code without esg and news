@@ -1,0 +1,1732 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OZVwVM7xqSZn",
+        "outputId": "57ebb98b-043a-4fa7-f180-aba9374927ff"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "==============================\n",
+            "Amazon (AMZN) -> ANN | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 11ms/step\n",
+            "RMSE: 3.6917\n",
+            "MAE : 2.7772\n",
+            "R²  : 0.9705\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 37ms/step\n",
+            "⚠️ Error for Amazon: Found array with dim 3. None expected <= 2.\n",
+            "\n",
+            "==============================\n",
+            "Apple (AAPL) -> SVM | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "RMSE: 58.3465\n",
+            "MAE : 37.9179\n",
+            "R²  : -4.6011\n",
+            "Predicted next-day closing price: 107.4186\n",
+            "\n",
+            "==============================\n",
+            "AstraZeneca (AZN) -> LSTM | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 31ms/step\n",
+            "RMSE: 1.2624\n",
+            "MAE : 0.9646\n",
+            "R²  : 0.9687\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 52ms/step\n",
+            "Predicted next-day closing price: 64.7051\n",
+            "\n",
+            "==============================\n",
+            "FTSE 100 (^FTSE) -> LSTM | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1513 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 22ms/step\n",
+            "RMSE: 95.1211\n",
+            "MAE : 76.0868\n",
+            "R²  : 0.9124\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 42ms/step\n",
+            "Predicted next-day closing price: 7992.5338\n",
+            "\n",
+            "==============================\n",
+            "Google (GOOGL) -> ANN | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "RMSE: 13.3520\n",
+            "MAE : 11.4477\n",
+            "R²  : 0.4432\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 33ms/step\n",
+            "⚠️ Error for Google: Found array with dim 3. None expected <= 2.\n",
+            "\n",
+            "==============================\n",
+            "HSBC (HSBC) -> ANN | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "RMSE: 0.5703\n",
+            "MAE : 0.4318\n",
+            "R²  : 0.9818\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 35ms/step\n",
+            "⚠️ Error for HSBC: Found array with dim 3. None expected <= 2.\n",
+            "\n",
+            "==============================\n",
+            "Hitachi (HTHIY) -> ANN | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 6ms/step \n",
+            "RMSE: 1.5345\n",
+            "MAE : 1.1866\n",
+            "R²  : 0.9708\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 36ms/step\n",
+            "⚠️ Error for Hitachi: Found array with dim 3. None expected <= 2.\n",
+            "\n",
+            "==============================\n",
+            "Linde (LIN) -> LSTM | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 39ms/step\n",
+            "RMSE: 11.2997\n",
+            "MAE : 9.6888\n",
+            "R²  : 0.8106\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 39ms/step\n",
+            "Predicted next-day closing price: 410.5801\n",
+            "\n",
+            "==============================\n",
+            "MUFG (MUFG) -> LSTM | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 41ms/step\n",
+            "RMSE: 0.3188\n",
+            "MAE : 0.2299\n",
+            "R²  : 0.9099\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 41ms/step\n",
+            "Predicted next-day closing price: 11.1898\n",
+            "\n",
+            "==============================\n",
+            "Microsoft (MSFT) -> SVR | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "RMSE: 123.5027\n",
+            "MAE : 105.3625\n",
+            "R²  : -21.4241\n",
+            "Predicted next-day closing price: 256.6134\n",
+            "\n",
+            "==============================\n",
+            "NVIDIA (NVDA) -> ANN | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "RMSE: 17.2947\n",
+            "MAE : 14.4051\n",
+            "R²  : 0.7249\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 38ms/step\n",
+            "⚠️ Error for NVIDIA: Found array with dim 3. None expected <= 2.\n",
+            "\n",
+            "==============================\n",
+            "Nikkei (^N225) -> ANN | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1463 from 2019-01-04 to 2024-12-30\n",
+            "\u001b[1m9/9\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "RMSE: 848.3851\n",
+            "MAE : 608.8161\n",
+            "R²  : 0.8755\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 42ms/step\n",
+            "⚠️ Error for Nikkei: Found array with dim 3. None expected <= 2.\n",
+            "\n",
+            "==============================\n",
+            "Nintendo (NTDOY) -> SVR | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "RMSE: 0.3516\n",
+            "MAE : 0.2740\n",
+            "R²  : 0.8729\n",
+            "Predicted next-day closing price: 14.7578\n",
+            "\n",
+            "==============================\n",
+            "S&P 500 (^GSPC) -> ANN | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 8ms/step\n",
+            "RMSE: 378.3503\n",
+            "MAE : 361.6233\n",
+            "R²  : 0.3556\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 36ms/step\n",
+            "⚠️ Error for S&P 500: Found array with dim 3. None expected <= 2.\n",
+            "\n",
+            "==============================\n",
+            "Shell (SHEL) -> LSTM | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 21ms/step\n",
+            "RMSE: 1.4247\n",
+            "MAE : 1.1037\n",
+            "R²  : 0.8458\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 47ms/step\n",
+            "Predicted next-day closing price: 59.5581\n",
+            "\n",
+            "==============================\n",
+            "Sony (SONY) -> LSTM | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 111ms/step\n",
+            "RMSE: 0.4466\n",
+            "MAE : 0.3463\n",
+            "R²  : 0.8931\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 40ms/step\n",
+            "Predicted next-day closing price: 21.1123\n",
+            "\n",
+            "==============================\n",
+            "Toyota (TM) -> LSTM | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 23ms/step\n",
+            "RMSE: 4.6107\n",
+            "MAE : 3.3261\n",
+            "R²  : 0.9582\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 41ms/step\n",
+            "Predicted next-day closing price: 191.4874\n",
+            "\n",
+            "==============================\n",
+            "Unilever (UL) -> XGB | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n",
+            "RMSE: 6.4360\n",
+            "MAE : 4.3514\n",
+            "R²  : 0.1688\n",
+            "Predicted next-day closing price: 56.3938\n",
+            "\n",
+            "\n",
+            "====== SUMMARY RESULTS ======\n",
+            "          asset ticker        rmse         mae         r2  next_day_price\n",
+            "0         Apple   AAPL   58.346452   37.917932  -4.601108      107.418632\n",
+            "1   AstraZeneca    AZN    1.262400    0.964648   0.968742       64.705141\n",
+            "2      FTSE 100  ^FTSE   95.121082   76.086801   0.912376     7992.533757\n",
+            "3         Linde    LIN   11.299673    9.688836   0.810574      410.580104\n",
+            "4          MUFG   MUFG    0.318789    0.229899   0.909922       11.189801\n",
+            "5     Microsoft   MSFT  123.502693  105.362547 -21.424141      256.613361\n",
+            "6      Nintendo  NTDOY    0.351551    0.274009   0.872925       14.757777\n",
+            "7         Shell   SHEL    1.424654    1.103680   0.845805       59.558061\n",
+            "8          Sony   SONY    0.446575    0.346329   0.893052       21.112338\n",
+            "9        Toyota     TM    4.610717    3.326110   0.958219      191.487432\n",
+            "10     Unilever     UL    6.435956    4.351368   0.168795       56.393772\n"
+          ]
+        }
+      ],
+      "source": [
+        "import warnings\n",
+        "warnings.filterwarnings(\"ignore\")\n",
+        "\n",
+        "import yfinance as yf\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "\n",
+        "from sklearn.preprocessing import MinMaxScaler, StandardScaler\n",
+        "from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score\n",
+        "from sklearn.svm import SVR\n",
+        "from xgboost import XGBRegressor\n",
+        "\n",
+        "from tensorflow.keras.models import Sequential\n",
+        "from tensorflow.keras.layers import Dense, LSTM, Dropout\n",
+        "from tensorflow.keras.callbacks import EarlyStopping\n",
+        "\n",
+        "# ======================================================\n",
+        "# 1. CONFIGURATION\n",
+        "# ======================================================\n",
+        "\n",
+        "START_DATE = \"2019-01-01\"\n",
+        "END_DATE = \"2024-12-31\"\n",
+        "LOOKBACK = 30  # days of history to predict next day\n",
+        "\n",
+        "# Mapping from your company/index name -> ticker, model, tuned/initial\n",
+        "# NOTE: For ADRs/indices tickers may differ based on your data source/exchange.\n",
+        "assets_config = {\n",
+        "    \"Amazon\":      {\"ticker\": \"AMZN\",   \"model\": \"ann\", \"tuned\": False},   # Initial ANN\n",
+        "    \"Apple\":       {\"ticker\": \"AAPL\",   \"model\": \"svm\", \"tuned\": True},    # SVM (Tuned)\n",
+        "    \"AstraZeneca\": {\"ticker\": \"AZN\",    \"model\": \"lstm\", \"tuned\": False},  # Initial LSTM\n",
+        "    \"FTSE 100\":    {\"ticker\": \"^FTSE\",  \"model\": \"lstm\", \"tuned\": False},  # Initial LSTM\n",
+        "    \"Google\":      {\"ticker\": \"GOOGL\",  \"model\": \"ann\", \"tuned\": True},    # ANN (Tuned)\n",
+        "    \"HSBC\":        {\"ticker\": \"HSBC\",   \"model\": \"ann\", \"tuned\": False},   # Initial ANN\n",
+        "    \"Hitachi\":     {\"ticker\": \"HTHIY\",  \"model\": \"ann\", \"tuned\": False},   # Initial ANN (US ADR)\n",
+        "    \"Linde\":       {\"ticker\": \"LIN\",    \"model\": \"lstm\", \"tuned\": True},   # Tuned LSTM\n",
+        "    \"MUFG\":        {\"ticker\": \"MUFG\",   \"model\": \"lstm\", \"tuned\": True},   # Tuned LSTM\n",
+        "    \"Microsoft\":   {\"ticker\": \"MSFT\",   \"model\": \"svr\", \"tuned\": True},    # Tuned SVR\n",
+        "    \"NVIDIA\":      {\"ticker\": \"NVDA\",   \"model\": \"ann\", \"tuned\": True},    # Tuned ANN\n",
+        "    \"Nikkei\":      {\"ticker\": \"^N225\",  \"model\": \"ann\", \"tuned\": False},   # Initial ANN\n",
+        "    \"Nintendo\":    {\"ticker\": \"NTDOY\",  \"model\": \"svr\", \"tuned\": True},    # Tuned SVR\n",
+        "    \"S&P 500\":     {\"ticker\": \"^GSPC\",  \"model\": \"ann\", \"tuned\": True},    # Tuned ANN\n",
+        "    \"Shell\":       {\"ticker\": \"SHEL\",   \"model\": \"lstm\", \"tuned\": False},  # Initial LSTM\n",
+        "    \"Sony\":        {\"ticker\": \"SONY\",   \"model\": \"lstm\", \"tuned\": True},   # LSTM_Tuned\n",
+        "    \"Toyota\":      {\"ticker\": \"TM\",     \"model\": \"lstm\", \"tuned\": False},  # Initial LSTM\n",
+        "    \"Unilever\":    {\"ticker\": \"UL\",     \"model\": \"xgb\", \"tuned\": True}     # XGBoost (Tuned)\n",
+        "}\n",
+        "\n",
+        "\n",
+        "# ======================================================\n",
+        "# 2. DATA PREP HELPERS\n",
+        "# ======================================================\n",
+        "\n",
+        "def download_close_prices(ticker, start, end):\n",
+        "    \"\"\"Download daily close price using yfinance.\"\"\"\n",
+        "    data = yf.download(ticker, start=start, end=end)\n",
+        "    if data.empty:\n",
+        "        raise ValueError(f\"No data returned for {ticker}\")\n",
+        "    close = data[\"Close\"].dropna()\n",
+        "    return close\n",
+        "\n",
+        "\n",
+        "def create_supervised_series(series, lookback):\n",
+        "    \"\"\"\n",
+        "    Convert a 1D series into supervised (X, y) for next-day prediction\n",
+        "    using a sliding window.\n",
+        "    \"\"\"\n",
+        "    X, y = [], []\n",
+        "    values = series.values\n",
+        "    for i in range(len(values) - lookback):\n",
+        "        X.append(values[i:i + lookback])\n",
+        "        y.append(values[i + lookback])\n",
+        "    return np.array(X), np.array(y)\n",
+        "\n",
+        "\n",
+        "def train_test_split_time_series(X, y, test_size=0.2):\n",
+        "    \"\"\"Time-series aware split (no shuffle).\"\"\"\n",
+        "    split_index = int(len(X) * (1 - test_size))\n",
+        "    X_train, X_test = X[:split_index], X[split_index:]\n",
+        "    y_train, y_test = y[:split_index], y[split_index:]\n",
+        "    return X_train, X_test, y_train, y_test\n",
+        "\n",
+        "\n",
+        "# ======================================================\n",
+        "# 3. MODEL BUILDERS\n",
+        "# ======================================================\n",
+        "\n",
+        "def build_ann(input_dim, tuned=False):\n",
+        "    model = Sequential()\n",
+        "    if not tuned:\n",
+        "        # Initial (simpler) ANN\n",
+        "        model.add(Dense(32, activation='relu', input_dim=input_dim))\n",
+        "        model.add(Dense(16, activation='relu'))\n",
+        "    else:\n",
+        "        # Tuned (slightly deeper & larger)\n",
+        "        model.add(Dense(64, activation='relu', input_dim=input_dim))\n",
+        "        model.add(Dropout(0.2))\n",
+        "        model.add(Dense(32, activation='relu'))\n",
+        "        model.add(Dense(16, activation='relu'))\n",
+        "    model.add(Dense(1))  # output layer\n",
+        "    model.compile(optimizer='adam', loss='mse')\n",
+        "    return model\n",
+        "\n",
+        "\n",
+        "def build_lstm(input_shape, tuned=False):\n",
+        "    model = Sequential()\n",
+        "    if not tuned:\n",
+        "        # Initial LSTM\n",
+        "        model.add(LSTM(32, input_shape=input_shape))\n",
+        "    else:\n",
+        "        # Tuned LSTM (stacked + dropout)\n",
+        "        model.add(LSTM(64, return_sequences=True, input_shape=input_shape))\n",
+        "        model.add(Dropout(0.2))\n",
+        "        model.add(LSTM(32))\n",
+        "    model.add(Dense(1))\n",
+        "    model.compile(optimizer='adam', loss='mse')\n",
+        "    return model\n",
+        "\n",
+        "\n",
+        "def build_svr(tuned=False):\n",
+        "    \"\"\"\n",
+        "    SVR used both for 'SVM (Tuned)' and 'SVR (Tuned/Initial)' labels,\n",
+        "    targeting price (regression).\n",
+        "    \"\"\"\n",
+        "    if not tuned:\n",
+        "        return SVR(kernel='rbf', C=1.0, epsilon=0.1)\n",
+        "    else:\n",
+        "        # Example tuned hyperparameters\n",
+        "        return SVR(kernel='rbf', C=100.0, epsilon=0.01, gamma='scale')\n",
+        "\n",
+        "\n",
+        "def build_xgb(tuned=False):\n",
+        "    if not tuned:\n",
+        "        return XGBRegressor(\n",
+        "            n_estimators=200,\n",
+        "            max_depth=3,\n",
+        "            learning_rate=0.1,\n",
+        "            subsample=0.8,\n",
+        "            colsample_bytree=0.8,\n",
+        "            objective='reg:squarederror'\n",
+        "        )\n",
+        "    else:\n",
+        "        return XGBRegressor(\n",
+        "            n_estimators=500,\n",
+        "            max_depth=5,\n",
+        "            learning_rate=0.03,\n",
+        "            subsample=0.9,\n",
+        "            colsample_bytree=0.9,\n",
+        "            reg_lambda=1.0,\n",
+        "            reg_alpha=0.1,\n",
+        "            objective='reg:squarederror'\n",
+        "        )\n",
+        "\n",
+        "\n",
+        "# ======================================================\n",
+        "# 4. TRAINING PIPELINE PER ASSET\n",
+        "# ======================================================\n",
+        "\n",
+        "def train_and_predict_for_asset(asset_name, config):\n",
+        "    ticker = config[\"ticker\"]\n",
+        "    model_type = config[\"model\"]   # 'ann', 'lstm', 'svm', 'svr', 'xgb'\n",
+        "    tuned = config[\"tuned\"]\n",
+        "\n",
+        "    print(f\"\\n==============================\")\n",
+        "    print(f\"{asset_name} ({ticker}) -> {model_type.upper()} | {'TUNED' if tuned else 'INITIAL'}\")\n",
+        "    print(f\"==============================\")\n",
+        "\n",
+        "    # ---------- 4.1 Download data ----------\n",
+        "    close = download_close_prices(ticker, START_DATE, END_DATE)\n",
+        "    print(f\"Data points: {len(close)} from {close.index[0].date()} to {close.index[-1].date()}\")\n",
+        "\n",
+        "    # ---------- 4.2 Scale data ----------\n",
+        "    scaler = MinMaxScaler(feature_range=(0, 1))\n",
+        "    close_scaled = scaler.fit_transform(close.values.reshape(-1, 1)).flatten()\n",
+        "\n",
+        "    # ---------- 4.3 Supervised dataset ----------\n",
+        "    X, y = create_supervised_series(pd.Series(close_scaled), LOOKBACK)\n",
+        "    X_train, X_test, y_train, y_test = train_test_split_time_series(X, y, test_size=0.2)\n",
+        "\n",
+        "    # ---------- 4.4 Shape adjustment ----------\n",
+        "    # For ANN, SVR, XGB => (samples, features)\n",
+        "    # For LSTM => (samples, timesteps, features=1)\n",
+        "    if model_type == \"lstm\":\n",
+        "        X_train_model = X_train.reshape((X_train.shape[0], X_train.shape[1], 1))\n",
+        "        X_test_model = X_test.reshape((X_test.shape[0], X_test.shape[1], 1))\n",
+        "    else:\n",
+        "        X_train_model = X_train\n",
+        "        X_test_model = X_test\n",
+        "\n",
+        "    # ---------- 4.5 Build model ----------\n",
+        "    if model_type == \"ann\":\n",
+        "        model = build_ann(input_dim=X_train_model.shape[1], tuned=tuned)\n",
+        "        es = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)\n",
+        "        history = model.fit(\n",
+        "            X_train_model, y_train,\n",
+        "            epochs=100 if tuned else 50,\n",
+        "            batch_size=32,\n",
+        "            validation_split=0.1,\n",
+        "            callbacks=[es],\n",
+        "            verbose=0\n",
+        "        )\n",
+        "        y_pred_scaled = model.predict(X_test_model).flatten()\n",
+        "\n",
+        "    elif model_type == \"lstm\":\n",
+        "        model = build_lstm(input_shape=(X_train_model.shape[1], 1), tuned=tuned)\n",
+        "        es = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)\n",
+        "        history = model.fit(\n",
+        "            X_train_model, y_train,\n",
+        "            epochs=100 if tuned else 50,\n",
+        "            batch_size=32,\n",
+        "            validation_split=0.1,\n",
+        "            callbacks=[es],\n",
+        "            verbose=0\n",
+        "        )\n",
+        "        y_pred_scaled = model.predict(X_test_model).flatten()\n",
+        "\n",
+        "    elif model_type in [\"svm\", \"svr\"]:\n",
+        "        # SVR uses raw X (already scaled with MinMax on price only)\n",
+        "        reg = build_svr(tuned=tuned)\n",
+        "        reg.fit(X_train_model, y_train)\n",
+        "        y_pred_scaled = reg.predict(X_test_model)\n",
+        "\n",
+        "    elif model_type == \"xgb\":\n",
+        "        reg = build_xgb(tuned=tuned)\n",
+        "        reg.fit(X_train_model, y_train)\n",
+        "        y_pred_scaled = reg.predict(X_test_model)\n",
+        "\n",
+        "    else:\n",
+        "        raise ValueError(f\"Unknown model type: {model_type}\")\n",
+        "\n",
+        "    # ---------- 4.6 Inverse scaling ----------\n",
+        "    # y values are in the scaled space, we invert to original price\n",
+        "    # Build arrays of shape (n_samples, 1) to inverse_transform\n",
+        "    y_test_prices = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten()\n",
+        "    y_pred_prices = scaler.inverse_transform(y_pred_scaled.reshape(-1, 1)).flatten()\n",
+        "\n",
+        "    # ---------- 4.7 Metrics ----------\n",
+        "    rmse = np.sqrt(mean_squared_error(y_test_prices, y_pred_prices))\n",
+        "    mae = mean_absolute_error(y_test_prices, y_pred_prices)\n",
+        "    r2 = r2_score(y_test_prices, y_pred_prices)\n",
+        "\n",
+        "    print(f\"RMSE: {rmse:.4f}\")\n",
+        "    print(f\"MAE : {mae:.4f}\")\n",
+        "    print(f\"R²  : {r2:.4f}\")\n",
+        "\n",
+        "    # ---------- 4.8 Next-day prediction ----------\n",
+        "    last_window_scaled = close_scaled[-LOOKBACK:]  # last 30 days scaled\n",
+        "    if model_type == \"lstm\":\n",
+        "        last_window_input = last_window_scaled.reshape((1, LOOKBACK, 1))\n",
+        "        next_day_scaled = model.predict(last_window_input)[0, 0]\n",
+        "    else:\n",
+        "        last_window_input = last_window_scaled.reshape(1, -1)\n",
+        "        if model_type in [\"ann\", \"lstm\"]:  # already handled; but keep clear\n",
+        "            next_day_scaled = model.predict(last_window_input)[0]\n",
+        "        elif model_type in [\"svm\", \"svr\", \"xgb\"]:\n",
+        "            next_day_scaled = reg.predict(last_window_input)[0]\n",
+        "        else:\n",
+        "            raise ValueError(\"Unexpected model type when forecasting.\")\n",
+        "\n",
+        "    next_day_price = scaler.inverse_transform([[next_day_scaled]])[0, 0]\n",
+        "    print(f\"Predicted next-day closing price: {next_day_price:.4f}\")\n",
+        "\n",
+        "    return {\n",
+        "        \"asset\": asset_name,\n",
+        "        \"ticker\": ticker,\n",
+        "        \"rmse\": rmse,\n",
+        "        \"mae\": mae,\n",
+        "        \"r2\": r2,\n",
+        "        \"next_day_price\": next_day_price\n",
+        "    }\n",
+        "\n",
+        "\n",
+        "# ======================================================\n",
+        "# 5. RUN FOR ALL ASSETS\n",
+        "# ======================================================\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    results = []\n",
+        "\n",
+        "    for asset_name, cfg in assets_config.items():\n",
+        "        try:\n",
+        "            res = train_and_predict_for_asset(asset_name, cfg)\n",
+        "            results.append(res)\n",
+        "        except Exception as e:\n",
+        "            print(f\"⚠️ Error for {asset_name}: {e}\")\n",
+        "\n",
+        "    # Summary table\n",
+        "    if results:\n",
+        "        df_results = pd.DataFrame(results)\n",
+        "        print(\"\\n\\n====== SUMMARY RESULTS ======\")\n",
+        "        print(df_results[[\"asset\", \"ticker\", \"rmse\", \"mae\", \"r2\", \"next_day_price\"]])\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "2os7oFfZqTRM"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OZVwVM7xqZSn",
+        "outputId": "b7f65fbf-4ca2-4904-9388-27ace176da38"
+      },
+      "source": [
+        "import warnings\n",
+        "warnings.filterwarnings(\"ignore\")\n",
+        "\n",
+        "import yfinance as yf\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "\n",
+        "from sklearn.preprocessing import MinMaxScaler, StandardScaler\n",
+        "from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score\n",
+        "from sklearn.svm import SVR\n",
+        "from xgboost import XGBRegressor\n",
+        "\n",
+        "from tensorflow.keras.models import Sequential\n",
+        "from tensorflow.keras.layers import Dense, LSTM, Dropout\n",
+        "from tensorflow.keras.callbacks import EarlyStopping\n",
+        "\n",
+        "# ======================================================\n",
+        "# 1. CONFIGURATION\n",
+        "# ======================================================\n",
+        "\n",
+        "START_DATE = \"2019-01-01\"\n",
+        "END_DATE = \"2024-12-31\"\n",
+        "LOOKBACK = 30  # days of history to predict next day\n",
+        "\n",
+        "# Mapping from your company/index name -> ticker, model, tuned/initial\n",
+        "# NOTE: For ADRs/indices tickers may differ based on your data source/exchange.\n",
+        "assets_config = {\n",
+        "    \"Amazon\":      {\"ticker\": \"AMZN\",   \"model\": \"ann\", \"tuned\": False},   # Initial ANN\n",
+        "    \"Apple\":       {\"ticker\": \"AAPL\",   \"model\": \"svm\", \"tuned\": True},    # SVM (Tuned)\n",
+        "    \"AstraZeneca\": {\"ticker\": \"AZN\",    \"model\": \"lstm\", \"tuned\": False},  # Initial LSTM\n",
+        "    \"FTSE 100\":    {\"ticker\": \"^FTSE\",  \"model\": \"lstm\", \"tuned\": False},  # Initial LSTM\n",
+        "    \"Google\":      {\"ticker\": \"GOOGL\",  \"model\": \"ann\", \"tuned\": True},    # ANN (Tuned)\n",
+        "    \"HSBC\":        {\"ticker\": \"HSBC\",   \"model\": \"ann\", \"tuned\": False},   # Initial ANN\n",
+        "    \"Hitachi\":     {\"ticker\": \"HTHIY\",  \"model\": \"ann\", \"tuned\": False},   # Initial ANN (US ADR)\n",
+        "    \"Linde\":       {\"ticker\": \"LIN\",    \"model\": \"lstm\", \"tuned\": True},   # Tuned LSTM\n",
+        "    \"MUFG\":        {\"ticker\": \"MUFG\",   \"model\": \"lstm\", \"tuned\": True},   # Tuned LSTM\n",
+        "    \"Microsoft\":   {\"ticker\": \"MSFT\",   \"model\": \"svr\", \"tuned\": True},    # Tuned SVR\n",
+        "    \"NVIDIA\":      {\"ticker\": \"NVDA\",   \"model\": \"ann\", \"tuned\": True},    # Tuned ANN\n",
+        "    \"Nikkei\":      {\"ticker\": \"^N225\",  \"model\": \"ann\", \"tuned\": False},   # Initial ANN\n",
+        "    \"Nintendo\":    {\"ticker\": \"NTDOY\",  \"model\": \"svr\", \"tuned\": True},    # Tuned SVR\n",
+        "    \"S&P 500\":     {\"ticker\": \"^GSPC\",  \"model\": \"ann\", \"tuned\": True},    # Tuned ANN\n",
+        "    \"Shell\":       {\"ticker\": \"SHEL\",   \"model\": \"lstm\", \"tuned\": False},  # Initial LSTM\n",
+        "    \"Sony\":        {\"ticker\": \"SONY\",   \"model\": \"lstm\", \"tuned\": True},   # LSTM_Tuned\n",
+        "    \"Toyota\":      {\"ticker\": \"TM\",     \"model\": \"lstm\", \"tuned\": False},  # Initial LSTM\n",
+        "    \"Unilever\":    {\"ticker\": \"UL\",     \"model\": \"xgb\", \"tuned\": True}     # XGBoost (Tuned)\n",
+        "}\n",
+        "\n",
+        "\n",
+        "# ======================================================\n",
+        "# 2. DATA PREP HELPERS\n",
+        "# ======================================================\n",
+        "\n",
+        "def download_close_prices(ticker, start, end):\n",
+        "    \"\"\"Download daily close price using yfinance.\"\"\"\n",
+        "    data = yf.download(ticker, start=start, end=end)\n",
+        "    if data.empty:\n",
+        "        raise ValueError(f\"No data returned for {ticker}\")\n",
+        "    close = data[\"Close\"].dropna()\n",
+        "    return close\n",
+        "\n",
+        "\n",
+        "def create_supervised_series(series, lookback):\n",
+        "    \"\"\"\n",
+        "    Convert a 1D series into supervised (X, y) for next-day prediction\n",
+        "    using a sliding window.\n",
+        "    \"\"\"\n",
+        "    X, y = [], []\n",
+        "    values = series.values\n",
+        "    for i in range(len(values) - lookback):\n",
+        "        X.append(values[i:i + lookback])\n",
+        "        y.append(values[i + lookback])\n",
+        "    return np.array(X), np.array(y)\n",
+        "\n",
+        "\n",
+        "def train_test_split_time_series(X, y, test_size=0.2):\n",
+        "    \"\"\"Time-series aware split (no shuffle).\"\"\"\n",
+        "    split_index = int(len(X) * (1 - test_size))\n",
+        "    X_train, X_test = X[:split_index], X[split_index:]\n",
+        "    y_train, y_test = y[:split_index], y[split_index:]\n",
+        "    return X_train, X_test, y_train, y_test\n",
+        "\n",
+        "\n",
+        "# ======================================================\n",
+        "# 3. MODEL BUILDERS\n",
+        "# ======================================================\n",
+        "\n",
+        "def build_ann(input_dim, tuned=False):\n",
+        "    model = Sequential()\n",
+        "    if not tuned:\n",
+        "        # Initial (simpler) ANN\n",
+        "        model.add(Dense(32, activation='relu', input_dim=input_dim))\n",
+        "        model.add(Dense(16, activation='relu'))\n",
+        "    else:\n",
+        "        # Tuned (slightly deeper & larger)\n",
+        "        model.add(Dense(64, activation='relu', input_dim=input_dim))\n",
+        "        model.add(Dropout(0.2))\n",
+        "        model.add(Dense(32, activation='relu'))\n",
+        "        model.add(Dense(16, activation='relu'))\n",
+        "    model.add(Dense(1))  # output layer\n",
+        "    model.compile(optimizer='adam', loss='mse')\n",
+        "    return model\n",
+        "\n",
+        "\n",
+        "def build_lstm(input_shape, tuned=False):\n",
+        "    model = Sequential()\n",
+        "    if not tuned:\n",
+        "        # Initial LSTM\n",
+        "        model.add(LSTM(32, input_shape=input_shape))\n",
+        "    else:\n",
+        "        # Tuned LSTM (stacked + dropout)\n",
+        "        model.add(LSTM(64, return_sequences=True, input_shape=input_shape))\n",
+        "        model.add(Dropout(0.2))\n",
+        "        model.add(LSTM(32))\n",
+        "    model.add(Dense(1))\n",
+        "    model.compile(optimizer='adam', loss='mse')\n",
+        "    return model\n",
+        "\n",
+        "\n",
+        "def build_svr(tuned=False):\n",
+        "    \"\"\"\n",
+        "    SVR used both for 'SVM (Tuned)' and 'SVR (Tuned/Initial)' labels,\n",
+        "    targeting price (regression).\n",
+        "    \"\"\"\n",
+        "    if not tuned:\n",
+        "        return SVR(kernel='rbf', C=1.0, epsilon=0.1)\n",
+        "    else:\n",
+        "        # Example tuned hyperparameters\n",
+        "        return SVR(kernel='rbf', C=100.0, epsilon=0.01, gamma='scale')\n",
+        "\n",
+        "\n",
+        "def build_xgb(tuned=False):\n",
+        "    if not tuned:\n",
+        "        return XGBRegressor(\n",
+        "            n_estimators=200,\n",
+        "            max_depth=3,\n",
+        "            learning_rate=0.1,\n",
+        "            subsample=0.8,\n",
+        "            colsample_bytree=0.8,\n",
+        "            objective='reg:squarederror'\n",
+        "        )\n",
+        "    else:\n",
+        "        return XGBRegressor(\n",
+        "            n_estimators=500,\n",
+        "            max_depth=5,\n",
+        "            learning_rate=0.03,\n",
+        "            subsample=0.9,\n",
+        "            colsample_bytree=0.9,\n",
+        "            reg_lambda=1.0,\n",
+        "            reg_alpha=0.1,\n",
+        "            objective='reg:squarederror'\n",
+        "        )\n",
+        "\n",
+        "\n",
+        "# ======================================================\n",
+        "# 4. TRAINING PIPELINE PER ASSET\n",
+        "# ======================================================\n",
+        "\n",
+        "def train_and_predict_for_asset(asset_name, config):\n",
+        "    ticker = config[\"ticker\"]\n",
+        "    model_type = config[\"model\"]   # 'ann', 'lstm', 'svm', 'svr', 'xgb'\n",
+        "    tuned = config[\"tuned\"]\n",
+        "\n",
+        "    print(f\"\\n==============================\")\n",
+        "    print(f\"{asset_name} ({ticker}) -> {model_type.upper()} | {'TUNED' if tuned else 'INITIAL'}\")\n",
+        "    print(f\"==============================\")\n",
+        "\n",
+        "    # ---------- 4.1 Download data ----------\n",
+        "    close = download_close_prices(ticker, START_DATE, END_DATE)\n",
+        "    print(f\"Data points: {len(close)} from {close.index[0].date()} to {close.index[-1].date()}\")\n",
+        "\n",
+        "    # ---------- 4.2 Scale data ----------\n",
+        "    scaler = MinMaxScaler(feature_range=(0, 1))\n",
+        "    close_scaled = scaler.fit_transform(close.values.reshape(-1, 1)).flatten()\n",
+        "\n",
+        "    # ---------- 4.3 Supervised dataset ----------\n",
+        "    X, y = create_supervised_series(pd.Series(close_scaled), LOOKBACK)\n",
+        "    X_train, X_test, y_train, y_test = train_test_split_time_series(X, y, test_size=0.2)\n",
+        "\n",
+        "    # ---------- 4.4 Shape adjustment ----------\n",
+        "    # For ANN, SVR, XGB => (samples, features)\n",
+        "    # For LSTM => (samples, timesteps, features=1)\n",
+        "    if model_type == \"lstm\":\n",
+        "        X_train_model = X_train.reshape((X_train.shape[0], X_train.shape[1], 1))\n",
+        "        X_test_model = X_test.reshape((X_test.shape[0], X_test.shape[1], 1))\n",
+        "    else:\n",
+        "        X_train_model = X_train\n",
+        "        X_test_model = X_test\n",
+        "\n",
+        "    # ---------- 4.5 Build model ----------\n",
+        "    if model_type == \"ann\":\n",
+        "        model = build_ann(input_dim=X_train_model.shape[1], tuned=tuned)\n",
+        "        es = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)\n",
+        "        history = model.fit(\n",
+        "            X_train_model, y_train,\n",
+        "            epochs=100 if tuned else 50,\n",
+        "            batch_size=32,\n",
+        "            validation_split=0.1,\n",
+        "            callbacks=[es],\n",
+        "            verbose=0\n",
+        "        )\n",
+        "        y_pred_scaled = model.predict(X_test_model).flatten()\n",
+        "\n",
+        "    elif model_type == \"lstm\":\n",
+        "        model = build_lstm(input_shape=(X_train_model.shape[1], 1), tuned=tuned)\n",
+        "        es = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)\n",
+        "        history = model.fit(\n",
+        "            X_train_model, y_train,\n",
+        "            epochs=100 if tuned else 50,\n",
+        "            batch_size=32,\n",
+        "            validation_split=0.1,\n",
+        "            callbacks=[es],\n",
+        "            verbose=0\n",
+        "        )\n",
+        "        y_pred_scaled = model.predict(X_test_model).flatten()\n",
+        "\n",
+        "    elif model_type in [\"svm\", \"svr\"]:\n",
+        "        # SVR used both for 'SVM (Tuned)' and 'SVR (Tuned/Initial)' labels,\n",
+        "        # targeting price (regression).\n",
+        "        reg = build_svr(tuned=tuned)\n",
+        "        reg.fit(X_train_model, y_train)\n",
+        "        y_pred_scaled = reg.predict(X_test_model)\n",
+        "\n",
+        "    elif model_type == \"xgb\":\n",
+        "        reg = build_xgb(tuned=tuned)\n",
+        "        reg.fit(X_train_model, y_train)\n",
+        "        y_pred_scaled = reg.predict(X_test_model)\n",
+        "\n",
+        "    else:\n",
+        "        raise ValueError(f\"Unknown model type: {model_type}\")\n",
+        "\n",
+        "    # ---------- 4.6 Inverse scaling ----------\n",
+        "    # y values are in the scaled space, we invert to original price\n",
+        "    # Build arrays of shape (n_samples, 1) to inverse_transform\n",
+        "    y_test_prices = scaler.inverse_transform(y_test.reshape(-1, 1)).flatten()\n",
+        "    y_pred_prices = scaler.inverse_transform(y_pred_scaled.reshape(-1, 1)).flatten()\n",
+        "\n",
+        "    # ---------- 4.8 Next-day prediction ----------\n",
+        "    last_window_scaled = close_scaled[-LOOKBACK:]  # last 30 days scaled\n",
+        "    if model_type == \"lstm\":\n",
+        "        last_window_input = last_window_scaled.reshape((1, LOOKBACK, 1))\n",
+        "        next_day_scaled = model.predict(last_window_input)[0, 0] # Returns scalar\n",
+        "    else:\n",
+        "        last_window_input = last_window_scaled.reshape(1, -1)\n",
+        "        if model_type == \"ann\":\n",
+        "            # ANN model.predict(2D_input) returns (1,1) array, need [0][0] for scalar\n",
+        "            next_day_scaled = model.predict(last_window_input)[0][0]\n",
+        "        elif model_type in [\"svm\", \"svr\", \"xgb\"]:\n",
+        "            # SVR/XGB model.predict(2D_input) returns (1,) array, [0] gives scalar\n",
+        "            next_day_scaled = reg.predict(last_window_input)[0]\n",
+        "        else:\n",
+        "            raise ValueError(\"Unexpected model type when forecasting.\")\n",
+        "\n",
+        "    next_day_price = scaler.inverse_transform([[next_day_scaled]])[0, 0]\n",
+        "\n",
+        "    # ---------- 4.7 Metrics ----------\n",
+        "    rmse = np.sqrt(mean_squared_error(y_test_prices, y_pred_prices))\n",
+        "    mae = mean_absolute_error(y_test_prices, y_pred_prices)\n",
+        "    r2 = r2_score(y_test_prices, y_pred_prices)\n",
+        "\n",
+        "    print(f\"RMSE: {rmse:.4f}\")\n",
+        "    print(f\"MAE : {mae:.4f}\")\n",
+        "    print(f\"R²  : {r2:.4f}\")\n",
+        "\n",
+        "    # ---------- 4.8 Next-day prediction ----------\n",
+        "\n",
+        "    print(f\"Predicted next-day closing price: {next_day_price:.4f}\")\n",
+        "\n",
+        "    return {\n",
+        "        \"asset\": asset_name,\n",
+        "        \"ticker\": ticker,\n",
+        "        \"rmse\": rmse,\n",
+        "        \"mae\": mae,\n",
+        "        \"r2\": r2,\n",
+        "        \"next_day_price\": next_day_price\n",
+        "    }\n",
+        "\n",
+        "\n",
+        "# ======================================================\n",
+        "# 5. RUN FOR ALL ASSETS\n",
+        "# ======================================================\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    results = []\n",
+        "\n",
+        "    for asset_name, cfg in assets_config.items():\n",
+        "        try:\n",
+        "            res = train_and_predict_for_asset(asset_name, cfg)\n",
+        "            results.append(res)\n",
+        "        except Exception as e:\n",
+        "            print(f\"⚠️ Error for {asset_name}: {e}\")\n",
+        "\n",
+        "    # Summary table\n",
+        "    if results:\n",
+        "        df_results = pd.DataFrame(results)\n",
+        "        print(\"\\n\\n====== SUMMARY RESULTS ======\")\n",
+        "        print(df_results[[\"asset\", \"ticker\", \"rmse\", \"mae\", \"r2\", \"next_day_price\"]])\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "==============================\n",
+            "Amazon (AMZN) -> ANN | INITIAL\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 38ms/step\n",
+            "RMSE: 4.0921\n",
+            "MAE : 3.0953\n",
+            "R²  : 0.9638\n",
+            "Predicted next-day closing price: 215.0732\n",
+            "\n",
+            "==============================\n",
+            "Apple (AAPL) -> SVM | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n",
+            "[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 58.3465\n",
+            "MAE : 37.9179\n",
+            "R²  : -4.6011\n",
+            "Predicted next-day closing price: 107.4186\n",
+            "\n",
+            "==============================\n",
+            "AstraZeneca (AZN) -> LSTM | INITIAL\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 32ms/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 56ms/step\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 1.2612\n",
+            "MAE : 0.9580\n",
+            "R²  : 0.9688\n",
+            "Predicted next-day closing price: 64.5137\n",
+            "\n",
+            "==============================\n",
+            "FTSE 100 (^FTSE) -> LSTM | INITIAL\n",
+            "==============================\n",
+            "Data points: 1513 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 24ms/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 39ms/step\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 61.6852\n",
+            "MAE : 47.0873\n",
+            "R²  : 0.9632\n",
+            "Predicted next-day closing price: 8093.2098\n",
+            "\n",
+            "==============================\n",
+            "Google (GOOGL) -> ANN | TUNED\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 36ms/step\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 10.7402\n",
+            "MAE : 8.9495\n",
+            "R²  : 0.6397\n",
+            "Predicted next-day closing price: 173.3891\n",
+            "\n",
+            "==============================\n",
+            "HSBC (HSBC) -> ANN | INITIAL\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 40ms/step\n",
+            "RMSE: 0.6922\n",
+            "MAE : 0.5490\n",
+            "R²  : 0.9731\n",
+            "Predicted next-day closing price: 46.5175\n",
+            "\n",
+            "==============================\n",
+            "Hitachi (HTHIY) -> ANN | INITIAL\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 6ms/step \n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 37ms/step\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 2.8527\n",
+            "MAE : 2.2631\n",
+            "R²  : 0.8990\n",
+            "Predicted next-day closing price: 45.9637\n",
+            "\n",
+            "==============================\n",
+            "Linde (LIN) -> LSTM | TUNED\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 180ms/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 65ms/step\n",
+            "RMSE: 5.9118\n",
+            "MAE : 4.7612\n",
+            "R²  : 0.9482\n",
+            "Predicted next-day closing price: 412.9411\n",
+            "\n",
+            "==============================\n",
+            "MUFG (MUFG) -> LSTM | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 41ms/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 54ms/step\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 0.2191\n",
+            "MAE : 0.1666\n",
+            "R²  : 0.9575\n",
+            "Predicted next-day closing price: 11.2833\n",
+            "\n",
+            "==============================\n",
+            "Microsoft (MSFT) -> SVR | TUNED\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n",
+            "[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 123.5027\n",
+            "MAE : 105.3625\n",
+            "R²  : -21.4241\n",
+            "Predicted next-day closing price: 256.6134\n",
+            "\n",
+            "==============================\n",
+            "NVIDIA (NVDA) -> ANN | TUNED\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 37ms/step\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 10.6187\n",
+            "MAE : 8.3011\n",
+            "R²  : 0.8963\n",
+            "Predicted next-day closing price: 133.4441\n",
+            "\n",
+            "==============================\n",
+            "Nikkei (^N225) -> ANN | INITIAL\n",
+            "==============================\n",
+            "Data points: 1463 from 2019-01-04 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m9/9\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 37ms/step\n",
+            "RMSE: 697.6934\n",
+            "MAE : 492.5954\n",
+            "R²  : 0.9158\n",
+            "Predicted next-day closing price: 39704.7438\n",
+            "\n",
+            "==============================\n",
+            "Nintendo (NTDOY) -> SVR | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n",
+            "[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 0.3516\n",
+            "MAE : 0.2740\n",
+            "R²  : 0.8729\n",
+            "Predicted next-day closing price: 14.7578\n",
+            "\n",
+            "==============================\n",
+            "S&P 500 (^GSPC) -> ANN | TUNED\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 7ms/step \n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 35ms/step\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 251.3060\n",
+            "MAE : 234.3501\n",
+            "R²  : 0.7157\n",
+            "Predicted next-day closing price: 5795.8562\n",
+            "\n",
+            "==============================\n",
+            "Shell (SHEL) -> LSTM | INITIAL\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 27ms/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 54ms/step\n",
+            "RMSE: 1.4034\n",
+            "MAE : 1.0875\n",
+            "R²  : 0.8504\n",
+            "Predicted next-day closing price: 59.5369\n",
+            "\n",
+            "==============================\n",
+            "Sony (SONY) -> LSTM | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 40ms/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 39ms/step\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 0.3448\n",
+            "MAE : 0.2551\n",
+            "R²  : 0.9362\n",
+            "Predicted next-day closing price: 21.1104\n",
+            "\n",
+            "==============================\n",
+            "Toyota (TM) -> LSTM | INITIAL\n",
+            "==============================\n",
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[1m10/10\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 38ms/step\n",
+            "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 62ms/step\n",
+            "RMSE: 3.8580\n",
+            "MAE : 2.8945\n",
+            "R²  : 0.9707\n",
+            "Predicted next-day closing price: 195.5684\n",
+            "\n",
+            "==============================\n",
+            "Unilever (UL) -> XGB | TUNED\n",
+            "==============================\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\r[*********************100%***********************]  1 of 1 completed"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data points: 1509 from 2019-01-02 to 2024-12-30\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "RMSE: 6.4360\n",
+            "MAE : 4.3514\n",
+            "R²  : 0.1688\n",
+            "Predicted next-day closing price: 56.3938\n",
+            "\n",
+            "\n",
+            "====== SUMMARY RESULTS ======\n",
+            "          asset ticker        rmse         mae         r2  next_day_price\n",
+            "0        Amazon   AMZN    4.092102    3.095253   0.963792      215.073206\n",
+            "1         Apple   AAPL   58.346452   37.917932  -4.601108      107.418632\n",
+            "2   AstraZeneca    AZN    1.261209    0.957957   0.968801       64.513733\n",
+            "3      FTSE 100  ^FTSE   61.685227   47.087268   0.963150     8093.209754\n",
+            "4        Google  GOOGL   10.740227    8.949549   0.639698      173.389088\n",
+            "5          HSBC   HSBC    0.692248    0.549050   0.973123       46.517510\n",
+            "6       Hitachi  HTHIY    2.852743    2.263089   0.899018       45.963697\n",
+            "7         Linde    LIN    5.911750    4.761180   0.948151      412.941138\n",
+            "8          MUFG   MUFG    0.219095    0.166633   0.957452       11.283332\n",
+            "9     Microsoft   MSFT  123.502693  105.362547 -21.424141      256.613361\n",
+            "10       NVIDIA   NVDA   10.618651    8.301091   0.896289      133.444126\n",
+            "11       Nikkei  ^N225  697.693439  492.595431   0.915776    39704.743833\n",
+            "12     Nintendo  NTDOY    0.351551    0.274009   0.872925       14.757777\n",
+            "13      S&P 500  ^GSPC  251.305987  234.350089   0.715681     5795.856156\n",
+            "14        Shell   SHEL    1.403430    1.087466   0.850365       59.536860\n",
+            "15         Sony   SONY    0.344803    0.255132   0.936243       21.110411\n",
+            "16       Toyota     TM    3.858044    2.894540   0.970747      195.568414\n",
+            "17     Unilever     UL    6.435956    4.351368   0.168795       56.393772\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
